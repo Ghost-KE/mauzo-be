@@ -7,15 +7,19 @@ Doorkeeper.configure do
 
   # This block will be called to check whether the resource owner is authenticated or not.
   # resource_owner_authenticator do
-    # raise "Please configure doorkeeper resource_owner_authenticator block located in #{__FILE__}"
-    # Put your resource owner authentication logic here.
-    # Example implementation:
-    #   User.find_by(id: session[:user_id]) || redirect_to(new_user_session_url)
-    # User.authenticate(params[:username], params[:password])
+  # raise "Please configure doorkeeper resource_owner_authenticator block located in #{__FILE__}"
+  # Put your resource owner authentication logic here.
+  # Example implementation:
+  #   User.find_by(id: session[:user_id]) || redirect_to(new_user_session_url)
+  # User.authenticate(params[:username], params[:password])
   # end
 
   resource_owner_from_credentials do
-    User.authenticate!(params[:username], params[:password])
+    if params[:agent]
+      Agent.authenticate!(params[:phone], params[:password])
+    else
+      User.authenticate!(params[:username], params[:password])
+    end
   end
 
   # If you didn't skip applications controller from Doorkeeper routes in your application routes.rb
@@ -505,7 +509,7 @@ Doorkeeper::JWT.configure do
   # about the user. Defaults to a randomly generated token in a hash:
   #     { token: "RANDOM-TOKEN" }
   token_payload do |opts|
-    user = User.find(opts[:resource_owner_id])
+    user = User.find_by(id: opts[:resource_owner_id]) || Agent.find_by(id: opts[:resource_owner_id])
 
     {
       iss: 'mauzo',
