@@ -15,6 +15,7 @@ gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 # gem "redis", "~> 4.0"
 # gem "kredis"
 gem 'bootsnap', require: false
+gem 'jsonapi-authorization'
 gem 'rack-cors'
 gem 'rolify'
 
