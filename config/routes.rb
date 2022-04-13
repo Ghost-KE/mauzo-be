@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :agents
   use_doorkeeper do
     skip_controllers :authorizations, :applications, :authorized_applications
   end
+
   devise_for :users
+  devise_for :agents
+
   jsonapi_resources :apps
   jsonapi_resources :roles
 

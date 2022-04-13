@@ -9,6 +9,11 @@ class ApplicationController < ActionController::API
 
   private
 
+  def current_user
+    @current_user ||= User.find_by(id: doorkeeper_token[:resource_owner_id]) ||
+                      Agent.find_by(id: doorkeeper_token[:resource_owner_id])
+  end
+
   def context
     { user: current_user }
   end

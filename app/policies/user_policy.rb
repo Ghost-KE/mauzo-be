@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def index?
+    user.has_role? :super_admin
+  end
 end
