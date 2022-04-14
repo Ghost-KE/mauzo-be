@@ -24,6 +24,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-nav'
+  gem 'pundit-matchers'
   gem 'rspec-rails'
 end
 

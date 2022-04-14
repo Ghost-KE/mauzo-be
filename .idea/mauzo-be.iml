@@ -78,6 +78,7 @@
     <orderEntry type="library" scope="PROVIDED" name="pry-nav (v1.0.0, RVM: ruby-3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v5.6.4, RVM: ruby-3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pundit (v2.2.0, RVM: ruby-3.0.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pundit-matchers (v1.7.0, RVM: ruby-3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.6.0, RVM: ruby-3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, RVM: ruby-3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-cors (v1.1.1, RVM: ruby-3.0.3) [gem]" level="application" />
@@ -447,6 +448,7 @@
           <RakeTaskImpl id="spec">
             <subtasks>
               <RakeTaskImpl description="Run the code examples in spec/models" fullCommand="spec:models" id="models" />
+              <RakeTaskImpl description="Run the code examples in spec/policies" fullCommand="spec:policies" id="policies" />
               <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
               <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>

@@ -147,6 +147,8 @@ GEM
       nio4r (~> 2.0)
     pundit (2.2.0)
       activesupport (>= 3.0.0)
+    pundit-matchers (1.7.0)
+      rspec-rails (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-cors (1.1.1)
@@ -231,6 +233,7 @@ DEPENDENCIES
   pry
   pry-nav
   puma (~> 5.0)
+  pundit-matchers
   rack-cors
   rails (~> 7.0.2, >= 7.0.2.3)
   rolify
